@@ -1,7 +1,7 @@
-import firebase from 'firebase';
+import Firebase from 'firebase';
 
 describe('jest with firebase', () => {
   it('is at least loadable', () => {
-    expect(firebase).not.toBeUndefined()
+    expect(Firebase).not.toBeUndefined()
   })
 })

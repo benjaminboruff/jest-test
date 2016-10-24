@@ -1,5 +1,5 @@
 # This repo should pass the jest test with Firebase imported
-First install all the node_modules
+First, install all the node_modules
 > `npm install`
 
 Then, before we do *anything else* make sure this setup passes the

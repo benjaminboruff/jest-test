@@ -69,7 +69,7 @@ Ran all test suites.
 npm ERR! Test failed.  See above for more details.
 ```
 
-So right away, by installing and configuring the "jest-react-native" and "react-native" presets **breaks** our ability to "import" firebase! The fix is to `require` firebase (**not** `import`) in our `index.test.js` file and add a line that imports `react-native`:
+So right away, by installing and configuring the "jest-react-native" and "react-native" presets **breaks** our ability to "import" firebase! The fix is to `require` firebase (**not** `import`) in our `index.test.js` file and add a line that imports `react-native`. Without `import`ing `react-native` in *addition* to `require('firebase')`, firebase will not be included in the test file:
 ```
 const Firebase = require('firebase')
 import React from 'react-native'

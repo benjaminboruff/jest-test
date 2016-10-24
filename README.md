@@ -20,13 +20,18 @@ PASS  ./index.test.js
  Ran all test suites.
 ```
 
-Our goal, now, is to see how installing, then setting up a
+Our goal, now, is to see how installing, then setting up, a
 jest-react-native preset *breaks* the babel-jest preprocessor's
 ability to import the firebase module a la ES modules.
 
-As per the [Jest tutorial on using react-native](https://facebook.github.io/jest/docs/tutorial-react-native.html#content) the following additional modules need to be installed:
+The
+[Jest tutorial on using react](https://facebook.github.io/jest/docs/tutorial-react.html#content) and the
+[Jest tutorial on using react-native](https://facebook.github.io/jest/docs/tutorial-react-native.html#content)
+are confusing, but the following additional modules seem to be needed:
 
-> npm install --save-dev  react react-native jest-react-native babel-preset-react-native react-test-renderer
+> npm install --save react react-native
+
+> npm install --save-dev jest-react-native babel-preset-react-native react-test-renderer
 
 Then configure your package.json file by adding a "jest" option, and modifying the "babel" option:
 ```js
@@ -64,7 +69,21 @@ Ran all test suites.
 npm ERR! Test failed.  See above for more details.
 ```
 
-So right away, by installing and configuring the "jest-react-native" and "react-native" presets breaks our ability to "import" firebase! The fix is simple, instead of `import`, just `require` firebase in our `index.test.js` file:
+So right away, by installing and configuring the "jest-react-native" and "react-native" presets **breaks** our ability to "import" firebase! The fix is to `require` firebase (**not** `import`) in our `index.test.js` file and add a line that imports `react-native`:
 ```
+const Firebase = require('firebase')
+import React from 'react-native'
+```
+The, run our test again and it should pass:
+```bash
+PASS  ./index.test.js
+ jest with firebase
+   ✓ is at least loadable (4ms)
 
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+Snapshots:   0 total
+Time:        4.604s
+Ran all test suites.
 ```
+**WHY?** That's the question that needs to be answered!

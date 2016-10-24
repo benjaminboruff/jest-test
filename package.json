@@ -9,12 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^3.5.1"
+    "firebase": "^3.5.1",
+    "jest": "^16.0.2"
   },
   "devDependencies": {
     "babel-jest": "^16.0.0",
-    "babel-preset-latest": "^6.16.0",
-    "jest": "^16.0.2"
+    "babel-preset-latest": "^6.16.0"
   },
   "babel": {
     "presets": [

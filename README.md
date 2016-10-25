@@ -33,7 +33,7 @@ are confusing, but the following additional modules seem to be needed:
 
 > npm install --save-dev jest-react-native babel-preset-react-native react-test-renderer
 
-Then configure your package.json file by adding a "jest" option, and *modifying* the "babel" option:
+Then configure your package.json file by adding a "jest" option with the `jest-react-native` preset, and *modifying* the "babel" option by *adding* a `react-native` preset:
 ```js
 "jest": {
     "preset": "jest-react-native"

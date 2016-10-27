@@ -1,4 +1,5 @@
 # This repo should pass the jest test with Firebase imported
+## From a Jest/FB team member : "firebase is doing something funky, there is an open issue about it we haven't had time to fix it yet", so it's not you!
 First, install all the node_modules
 > `npm install`
 
